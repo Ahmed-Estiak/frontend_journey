@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container-1">
+    <div class="box box-1">
+      <img class="header_image" src="images/m1.jpg" alt="1st photo">
+      <h3 class="post-title">Box One</h3>
+      <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero at repellat consequuntur aliquid perferendis officia consectetur placeat alias debitis quidem eaque culpa eum architecto accusamus magnam cumque eligendi cupiditate animi, atque ad! Quibusdam maxime neque esse expedita officiis nisi? Eveniet illo adipisci quasi voluptatibus consectetur ducimus? Molestiae necessitatibus perspiciatis odit blanditiis porro officiis quia, nisi maiores! Labore, vel perferendis, esse aperiam repellat veniam enim dolor eveniet consequuntur veritatis excepturi obcaecati accusantium commodi voluptatibus aliquid nam vitae minima. Veritatis porro repellat sint, doloribus ab perferendis placeat quas beatae, sequi vel ut eos, eligendi expedita nemo doloremque nostrum saepe autem dolor exercitationem ea omnis dicta aliquid vitae! Impedit laboriosam exercitationem nam repellendus. Cumque et architecto nostrum molestiae maiores blanditiis in suscipit, libero maxime est odio, quia ad veniam aliquam odit nemo modi cupiditate ut quidem? Quisquam recusandae neque nesciunt, officiis 
+        consectetur facere, reiciendis qui assumenda dolorum odit at temporibus illum possimus deleniti?
+      </p>
+      
+      <a href="readmore1.html" onclick="storeData(0)" target="_blank" class="read-btn">Read More</a>
+
+    </div>
+    <div class="box box-2">
+      <img class="header_image" src="images/m2.jpg" alt="2nd photo">
+      <h3>Box Two</h3>
+      <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est alias molestiae velit magni distinctio voluptatum officia fugit iste tenetur eos. Beatae nostrum quidem minima similique iusto modi autem, minus laboriosam veritatis cumque tenetur veniam maiores sequi incidunt quibusdam qui ipsam recusandae at ut? Voluptatibus magnam ullam accusantium veritatis iure! Iste consequatur eaque nesciunt pariatur aspernatur doloremque alias at quos, voluptatibus possimus. Vel voluptate impedit error vero fuga sapiente doloremque laboriosam dolor qui! Voluptas exercitationem quos amet eum earum, rem in nisi natus consectetur quae ducimus nihil pariatur 
+        quisquam sunt blanditiis eaque veritatis esse consequuntur tenetur excepturi? Unde odio quae autem?
+      </p>
+      <button class="read_more"><a href="readmore1.html" target="_blank">Read More</a></button>
+    </div>
+    <div class="box box-3">
+      <img class="header_image" src="images/m3.png" alt="3rd photo">
+      <h3>Box Three</h3>
+      <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis corrupti alias assumenda rerum, quaerat voluptas debitis soluta illo delectus? Aliquam atque necessitatibus dignissimos eius illo officiis, quod at reiciendis porro eveniet impedit deleniti omnis adipisci. Obcaecati illum laboriosam neque pariatur? Reiciendis quod ipsa ea dolor velit incidunt dolores neque inventore sunt quas nostrum ab cumque voluptatem error minima veniam, odit voluptatum assumenda magnam nisi in perferendis. Iusto recusandae minima pariatur reprehenderit ipsa, ratione vel quibusdam! Delectus nulla incidunt illo modi tempora, sed sunt facere officia totam debitis voluptate ab commodi ad quia ipsa libero possimus! Cum consectetur facilis illo voluptas consequatur in, quasi, dolore assumenda iste incidunt, corporis minima soluta quam? Asperiores reiciendis eveniet libero vel fugiat dignissimos odit inventore ex? Animi ipsum vel nobis delectus harum esse nostrum itaque officia, earum quisquam magni eum maxime obcaecati possimus excepturi rerum veniam vero fuga perspiciatis magnam rem? Autem eum odit sapiente quod ad culpa. Error atque suscipit ipsum veniam harum adipisci, eius eveniet officia ab dignissimos, architecto quibusdam, facere ipsa fugiat laborum! Rem impedit architecto quo sed voluptas. Explicabo, accusantium voluptas molestiae aut id earum maxime, doloremque iste ipsa repudiandae ex, 
+          sequi quos perspiciatis officia corrupti exercitationem. Asperiores voluptatibus voluptate odio.
+      </p>
+      <button class="read_more"><a href="">Read More</a></button>
+    </div>
+  </div>
+
+</body>
+
+<script>
+
+  function truncateText(selector, maxLength) {
+  const elements = document.querySelectorAll(selector);
+  elements.forEach(el => {
+    const original = el.innerText;
+    el.dataset.fulltext = original;
+    if (original.length > maxLength) {
+      el.innerText = original.substring(0, maxLength) + "...";
+    }
+  });
+}
+truncateText(".summary", 50);
+
+function storeData(index) {
+  const data = {
+    title: document.querySelectorAll(".post-title")[index].innerText,
+    image: document.querySelectorAll(".header_image")[index].src,
+    content: document.querySelectorAll(".summary")[index].dataset.fulltext
+  };
+  localStorage.setItem("blogPost", JSON.stringify(data));
+}
+
+
+</script>
+
+
+</html>

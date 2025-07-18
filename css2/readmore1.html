@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="blog"></div>
+
+  <script>
+    const post = JSON.parse(localStorage.getItem("blogPost"));
+    const container = document.getElementById("blog");
+
+    if (post) {
+      container.innerHTML = `
+        <h1>${post.title}</h1>
+        <img src="${post.image}" width="400">
+        <p>${post.content}</p>
+      `;
+    } else {
+      container.innerHTML = "<p>No blog post found.</p>";
+    }
+  </script>
+</body>
+
+
+
+
+
+
+</html>
