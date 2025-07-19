@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,10 @@
 <body>
   <div class="container-1">
     <div class="box box-1">
+      <div class="hover-img">
       <img class="header_image" src="images/m1.jpg" alt="1st photo">
+      <img src="images/m2.jpg" class="second-img" alt="Hover">
+      </div>
       <h3 class="post-title">Box One</h3>
       <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero at repellat consequuntur aliquid perferendis officia consectetur placeat alias debitis quidem eaque culpa eum architecto accusamus magnam cumque eligendi cupiditate animi, atque ad! Quibusdam maxime neque esse expedita officiis nisi? Eveniet illo adipisci quasi voluptatibus consectetur ducimus? Molestiae necessitatibus perspiciatis odit blanditiis porro officiis quia, nisi maiores! Labore, vel perferendis, esse aperiam repellat veniam enim dolor eveniet consequuntur veritatis excepturi obcaecati accusantium commodi voluptatibus aliquid nam vitae minima. Veritatis porro repellat sint, doloribus ab perferendis placeat quas beatae, sequi vel ut eos, eligendi expedita nemo doloremque nostrum saepe autem dolor exercitationem ea omnis dicta aliquid vitae! Impedit laboriosam exercitationem nam repellendus. Cumque et architecto nostrum molestiae maiores blanditiis in suscipit, libero maxime est odio, quia ad veniam aliquam odit nemo modi cupiditate ut quidem? Quisquam recusandae neque nesciunt, officiis 
@@ -41,8 +45,12 @@
       </p>
       <button class="read_more"><a href="">Read More</a></button>
     </div>
+    
   </div>
-
+  <button id="toggle">
+      Change background theme
+    </button>
+  <script src="script.js"></script>
 </body>
 
 <script>
@@ -67,6 +75,38 @@ function storeData(index) {
   };
   localStorage.setItem("blogPost", JSON.stringify(data));
 }
+
+/*const toggleTheme=document.getElementById("toggle");
+toggleTheme.addEventListener("click", ()=>{
+document.body.classList.toggle("dark-mode1");
+});
+// Load theme on page load
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode1");
+}
+
+toggleTheme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode1");
+  // Save theme preference
+  const isDark = document.body.classList.contains("dark-mode1");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});*/
+
+const toggleTheme = document.getElementById("toggle");
+
+// Load theme on page load
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode1");
+}
+
+// Toggle + Save preference
+toggleTheme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode1");
+  const isDark = document.body.classList.contains("dark-mode1");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
 
 
 </script>
