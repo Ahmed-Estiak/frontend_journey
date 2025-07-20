@@ -1,7 +1,15 @@
 html {
   scroll-behavior: smooth;
 }
-section {
-  padding-top: 100px;
-  margin-top: -100px;
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+.tab-btn.active {
+  background-color: #4affae;
+  color: white;
 }
