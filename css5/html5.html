@@ -222,9 +222,11 @@ if (localStorage.getItem("theme") === "dark") {
     }, 1000);
   });
 */ 
+let timer; // Declare timer variable
 window.addEventListener("load", () => {
   const savedDate = localStorage.getItem("targetDate");
   if (savedDate) {
+    document.getElementById("targetTime").value = savedDate; // Set input value from localStorage
     startCountdown(savedDate);
   }
 });
