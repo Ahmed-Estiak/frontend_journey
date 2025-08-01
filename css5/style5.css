@@ -43,3 +43,12 @@
   background-color: #f9f9f9;
   padding: 10px;
 }
+
+.clock {
+  font-size: 48px;
+  font-weight: bold;
+  color: #4affae;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  margin-top: 100px;
+}
