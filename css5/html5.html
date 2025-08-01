@@ -42,8 +42,16 @@
 <div class="clock-container" id="datetime"></div>
 <button id="toggle-mode">🌙</button>
 
+<!--<h2>⏳ Countdown Timer</h2>
+<p id="countdown">Loading...</p> -->
+
 <h2>⏳ Countdown Timer</h2>
-<p id="countdown">Loading...</p>
+
+<label for="targetTime">Choose Target Date & Time:</label><br>
+<input type="datetime-local" id="targetTime">
+<button id="startBtn">Start Countdown</button>
+
+<p id="countdown2">Waiting for input...</p>
 
 
 </body>
@@ -154,7 +162,7 @@ if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
 }
 
-const targetDate = new Date("2025-12-31T23:59:59");
+/*const targetDate = new Date("2025-12-31T23:59:59");
 
   
   const timer = setInterval(() => {
@@ -176,7 +184,87 @@ const targetDate = new Date("2025-12-31T23:59:59");
     document.getElementById("countdown").innerText =
       `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
+  }, 1000);*/
+
+
+
+  /*let timer; 
+
+  document.getElementById("startBtn").addEventListener("click", () => {
+    a
+    clearInterval(timer);
+
+    const input = document.getElementById("targetTime").value;
+    const targetDate = new Date(input);
+
+    if (!input || isNaN(targetDate.getTime())) {
+      document.getElementById("countdown2").innerText = "❌ Invalid date!";
+      return;
+    }
+
+    timer = setInterval(() => {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown2").innerText = "✅ Time's up!";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown2").innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  });
+*/ 
+window.addEventListener("load", () => {
+  const savedDate = localStorage.getItem("targetDate");
+  if (savedDate) {
+    startCountdown(savedDate);
+  }
+});
+
+function startCountdown(input) {
+  clearInterval(timer);
+  const targetDate = new Date(input);
+
+  timer = setInterval(() => {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown2").innerText = "✅ Time's up!";
+      clearInterval(timer);
+      localStorage.removeItem("targetDate"); // finished, so clear
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown2").innerText =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }, 1000);
+}
+
+document.getElementById("startBtn").addEventListener("click", () => {
+  const input = document.getElementById("targetTime").value;
+
+  if (!input || isNaN(new Date(input).getTime())) {
+    document.getElementById("countdown2").innerText = "❌ Invalid date!";
+    return;
+  }
+
+  localStorage.setItem("targetDate", input); // ✅ save to localStorage
+  startCountdown(input); // ✅ call function
+});
 
 
 </script>

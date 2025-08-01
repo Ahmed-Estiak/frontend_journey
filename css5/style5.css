@@ -103,3 +103,9 @@ body.dark .clock-container {
   border-radius: 10px;
   display: inline-block;
 }
+#countdown2 {
+  font-size: 1.8rem;
+  margin-top: 20px;
+  font-family: monospace;
+  color: #4affae;
+}
