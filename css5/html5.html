@@ -53,6 +53,34 @@
 
 <p id="countdown2">Waiting for input...</p>
 
+<div class="calculator">
+  <input type="text" id="display" readonly />
+  <div class="buttons">
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>/</button>
+
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>*</button>
+
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>-</button>
+
+    <button>0</button>
+    <button>.</button>
+    <button>=</button>
+    <button>+</button>
+
+    <button id="clear">C</button>
+  </div>
+</div>
+
+
 
 </body>
 <script>
@@ -267,6 +295,29 @@ document.getElementById("startBtn").addEventListener("click", () => {
   localStorage.setItem("targetDate", input); // ✅ save to localStorage
   startCountdown(input); // ✅ call function
 });
+
+
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll(".buttons button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const value = button.textContent;
+
+    if (value === "C") {
+      display.value = "";
+    } else if (value === "=") {
+      try {
+        display.value = eval(display.value); // ⚠️ only for learning
+      } catch {
+        display.value = "Error";
+      }
+    } else {
+      display.value += value;
+    }
+  });
+});
+
 
 
 </script>

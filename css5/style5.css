@@ -109,3 +109,54 @@ body.dark .clock-container {
   font-family: monospace;
   color: #4affae;
 }
+.calculator {
+  width: 300px;
+  margin: 50px auto;
+  padding: 15px;
+  background: #f9f9f9;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 8px;
+}
+
+#display {
+  width: 92%;
+  height: 50px;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#startBtn {
+  background-color: #4affae;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#toggle-mode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4affae;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
