@@ -1,0 +1,13 @@
+.todo-container {
+  max-width: 400px;
+  margin: auto;
+}
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
