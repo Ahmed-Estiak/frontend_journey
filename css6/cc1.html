@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC1</title>
+</head>
+<body>
+  <h2>Text Analyzer</h2>
+
+<textarea id="text-input" placeholder="Type your text here..."></textarea>
+<br>
+<button id="analyze-btn">Analyze</button>
+
+<div class="stats">
+  <p>🔤 Characters: <span id="char-count">0</span></p>
+  <p>📝 Words: <span id="word-count">0</span></p>
+  <p>📙 Sentences: <span id="sentence-count">0</span></p>
+</div>
+
+</body>
+
+<script>
+  const textarea = document.getElementById("text-input");
+const analyzeBtn = document.getElementById("analyze-btn");
+
+const charCount = document.getElementById("char-count");
+const wordCount = document.getElementById("word-count");
+const sentenceCount = document.getElementById("sentence-count");
+
+analyzeBtn.addEventListener("click", () => {
+  const text = textarea.value;
+
+  // 🔤 Character Count
+  charCount.innerText = text.length;
+
+  // 📝 Word Count
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  wordCount.innerText = words.length;
+
+  // 📙 Sentence Count
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  sentenceCount.innerText = sentences.length;
+});
+
+</script>
+</html>
