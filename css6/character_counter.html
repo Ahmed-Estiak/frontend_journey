@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cc.css">
+  <title>Character Count</title>
+</head>
+<body>
+  <input type="text" id="input-text" placeholder="Type something..." />
+  <p id="char-count">Character Count: 0</p>
+  <p id="word-count">Word Count: 0</p>
+  <p id="sentence-count">Sentence Count: 0</p>
+</body>
+<script>
+const inputText = document.getElementById("input-text");
+const charCount = document.getElementById("char-count"); 
+const wordCount = document.getElementById("word-count");
+const sentenceCount = document.getElementById("sentence-count");
+inputText.addEventListener("input", () => {
+  const text = inputText.value;
+  
+  // Character count
+  charCount.innerText = `Character Count: ${text.length}`;
+  
+  // Word count
+  const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+  wordCount.innerText = `Word Count: ${words.length}`;
+  
+  // Sentence count
+  const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+  sentenceCount.innerText = `Sentence Count: ${sentences.length}`;
+});
+</script>
+</html>
