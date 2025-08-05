@@ -1,12 +1,58 @@
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+
+/* Center the input and button together */
 .todo-container {
   max-width: 400px;
-  margin: auto;
+  margin: 20px auto;
+  text-align: center;
 }
+
+.todo-container input,
+.todo-container button {
+  padding: 8px;
+  font-size: 16px;
+}
+
+#add-btn {
+  margin-left: 8px;
+}
+
+/* Make list items uniform */
+#todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
 #todo-list li {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
 }
+
+/* Ensure task text takes up space */
+#todo-list li span {
+  flex: 1;
+  text-align: left;
+  word-break: break-word;
+  margin-right: 10px;
+}
+
+/* Style buttons inside list */
+#todo-list li button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Done class style */
 .done {
   text-decoration: line-through;
   color: red;
