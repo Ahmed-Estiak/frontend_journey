@@ -96,34 +96,38 @@
       header.nextElementSibling.style.display= 'block';
     });
   });*/
-
-  const headers = document.querySelectorAll('.accordion-header');
+function toggleAccordion(selector='.accordion-header') {
+  const headers = document.querySelectorAll(selector);
   headers.forEach(header => {
     header.addEventListener('click', () =>{
       const body= header.nextElementSibling;
-    const arrow = header.querySelector('.arrow');
-    headers.forEach(h=>{
-      if (h !== header) {
-        h.classList.remove('active');
-        h.querySelector('.arrow').classList.remove('rotate');
-        h.nextElementSibling.style.maxHeight = null;
-        h.nextElementSibling.classList.remove('open');
+      const arrow = header.querySelector('.arrow');
+
+      headers.forEach(h=>{
+        if (h !== header) {
+          h.classList.remove('active');
+          h.querySelector('.arrow').classList.remove('rotate');
+          h.nextElementSibling.style.maxHeight = null;
+          h.nextElementSibling.classList.remove('open');
+        }
+      });
+      const isOpen = body.classList.contains('open');
+      if (isOpen) {
+        body.style.maxHeight = null;
+        body.classList.remove('open');
+        header.classList.remove('active');
+        arrow.classList.remove('rotate');
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.classList.add('open');
+        header.classList.add('active');
+        arrow.classList.add('rotate');
       }
-    });
-    const isOpen = body.classList.contains('open');
-    if (isOpen) {
-      body.style.maxHeight = null;
-      body.classList.remove('open');
-      header.classList.remove('active');
-      arrow.classList.remove('rotate');
-    } else {
-      body.style.maxHeight = body.scrollHeight + 'px';
-      body.classList.add('open');
-      header.classList.add('active');
-      arrow.classList.add('rotate');
-    }
   });
 });
+
+}
+toggleAccordion();
 
 function updateClock() {
   const now= new Date();
